@@ -13,6 +13,7 @@ namespace EMS.Data.Models
         public string PositionId { get; set; }
         public string PositionName { get; set; } 
         public string PositionDis { get; set; }
+        public Boolean IsActive { get; set; }
 
        // public IFormFile Image { get; set; }
         public ICollection<Employee> Employee { get; set; }

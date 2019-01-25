@@ -11,7 +11,8 @@ namespace EMS.Data.Models
         [Key]
         public string DprtId { get; set; }
         public string DprtName { get; set; }
-       // public ICollection<Emp> Emp { get; set; }
-       public IEnumerable<Employee> Emp { get; set; }
+        // public ICollection<Emp> Emp { get; set; }
+        public Boolean IsActive { get; set; }
+        public IEnumerable<Employee> Emp { get; set; }
     }
 }

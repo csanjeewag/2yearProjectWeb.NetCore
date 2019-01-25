@@ -41,9 +41,17 @@ namespace EMS.Service
         {
             return _service.UpdatePosition(role);
         }
+        public Boolean DeActive(string id)
+        {
+            return _service.DeActive(id);
+        }
+        public Boolean Active(string id)
+        {
+            return _service.Active(id);
+        }
 
-       
-       
+
+
 
     }
 }

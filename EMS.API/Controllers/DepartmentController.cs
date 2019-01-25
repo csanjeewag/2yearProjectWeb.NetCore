@@ -76,9 +76,31 @@ namespace EMS.API.Controllers
         public IActionResult GetDepartments()
         {
 
+            var res = _service.GetDepartments().Where(c=>c.IsActive == true).ToList();
+
+            try { return Ok(res); } catch { return BadRequest("error get departments!"); }
+        }
+
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        [HttpGet("getalldepartments")]
+        public IActionResult GetAllDepartments()
+        {
+
             var res = _service.GetDepartments();
 
             try { return Ok(res); } catch { return BadRequest("error get departments!"); }
+        }
+        [HttpGet("deactive/{id}")]
+        public Boolean DeActive(string id)
+        {
+            return _service.DeActive(id);
+        }
+
+        [HttpGet("active/{id}")]
+        public Boolean Active(string id)
+        {
+            return _service.Active(id);
         }
     }
 }

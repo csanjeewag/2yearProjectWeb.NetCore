@@ -37,5 +37,16 @@ namespace EMS.Service
             return _service.GetDepartmentById(id);
 
         }
+
+        public Boolean DeActive(string id)
+        {
+            return _service.DeActive(id);
+        }
+
+        public Boolean Active(string id)
+        {
+            return _service.Active(id);
+        }
+
     }
 }

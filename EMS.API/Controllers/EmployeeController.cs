@@ -240,8 +240,7 @@ namespace EMS.API.Controllers
         [HttpPost("updateemployeedetails")]
         public IActionResult UpdateEmployeeByPart([FromForm]GetEmployee employee)
         {
-            Hash hash = new Hash();
-            employee.EmpPassword = hash.HashPassword(employee.EmpPassword);
+            
 
             if (_service.UpdateEmployeeByPart(employee))
             {

@@ -40,6 +40,7 @@ namespace EMS.Data
         {
             try
             {
+                dprt.IsActive = true;
                 _context.Departments.Add(dprt);
                 _context.SaveChanges();
 
@@ -60,6 +61,7 @@ namespace EMS.Data
         {
             try
             {
+                dprt.IsActive = true;
                 _context.Entry(dprt).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();
                 return true;
@@ -79,6 +81,40 @@ namespace EMS.Data
             var departments = _context.Departments
                .ToList();
             return departments;
+        }
+
+        public Boolean DeActive(string id)
+        {
+            var result = _context.Departments.Where(c => c.IsActive == true && c.DprtId == id).FirstOrDefault();
+            try
+            {
+                result.IsActive = false;
+                _context.Entry(result).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        public Boolean Active(string id)
+        {
+            var result = _context.Departments.Where(c => c.IsActive == false && c.DprtId == id).FirstOrDefault();
+            try
+            {
+                result.IsActive = true;
+                _context.Entry(result).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
     }
 }

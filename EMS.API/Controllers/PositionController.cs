@@ -70,9 +70,30 @@ namespace EMS.API.Controllers
         public IActionResult GetRoles()
         {
 
+            var res = _service.GetRoles().Where(c=> c.IsActive== true).ToList();
+
+            try { return Ok(res); } catch { return BadRequest("error get roles!"); }
+        }
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        [HttpGet("getallroles")]
+        public IActionResult GetAllRoles()
+        {
+
             var res = _service.GetRoles();
 
             try { return Ok(res); } catch { return BadRequest("error get roles!"); }
+        }
+
+        [HttpGet("deactive/{id}")]
+        public Boolean DeActive(string id)
+        {
+            return _service.DeActive(id);
+        }
+        [HttpGet("active/{id}")]
+        public Boolean Active(string id)
+        {
+            return _service.Active(id);
         }
     }
 }

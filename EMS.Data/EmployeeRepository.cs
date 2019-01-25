@@ -79,6 +79,7 @@ namespace EMS.Data
                             Position positionUser = new Position();
                             positionUser.PositionId = "AD";
                             positionUser.PositionName = "Admin";
+                            positionUser.IsActive = true;
                             _context.Positions.Add(positionUser);
                             _context.SaveChanges();
                         }
@@ -88,6 +89,7 @@ namespace EMS.Data
                             Position positionUser = new Position();
                             positionUser.PositionId = "User";
                             positionUser.PositionName = "User";
+                            positionUser.IsActive = true;
                             _context.Positions.Add(positionUser);
                             _context.SaveChanges();
                         }
@@ -105,6 +107,7 @@ namespace EMS.Data
                         {
                             Department department = new Department();
                             department.DprtId = "No";
+                            department.IsActive = true;
                             department.DprtName = "No Department";
                             _context.Departments.Add(department); 
                             _context.SaveChanges();
@@ -328,8 +331,10 @@ namespace EMS.Data
             {
                 Employee employee = new Employee();
                 employee = _context.Employees.Where(c => c.EmpEmail == emp.EmpEmail).FirstOrDefault();
+                employee.LastUpdate = DateTime.Today;
+                employee.StartDate = _context.Employees.Where(c => c.EmpEmail == emp.EmpEmail).Select(c=>c.StartDate).FirstOrDefault();
 
-                if(emp.PositionPId != null)
+                if (emp.PositionPId != null)
                 {
                     var count = _context.Employees.Where(c => c.IsActive == true && c.PositionPId == "AD").Count();
                     if(count == 1 && employee.PositionPId == "AD")

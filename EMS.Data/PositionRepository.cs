@@ -25,6 +25,7 @@ namespace EMS.Data
         {
             try
             {
+                position.IsActive = true;
                 _context.Positions.Add(position);
                 _context.SaveChanges();
 
@@ -72,6 +73,7 @@ namespace EMS.Data
         {
             try
             {
+                role.IsActive = true;
                 _context.Entry(role).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();
                 return true;
@@ -81,8 +83,38 @@ namespace EMS.Data
                 return false;
             }
         }
+        public Boolean DeActive(string id)
+        {
+            try
+            {
+                var result = _context.Positions.Where(c => c.IsActive == true && c.PositionId == id).FirstOrDefault();
+                result.IsActive = false;
+                _context.Entry(result).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
-        
+        public Boolean Active(string id)
+        {
+            try
+            {
+                var result = _context.Positions.Where(c => c.IsActive == false && c.PositionId == id).FirstOrDefault();
+                result.IsActive = true;
+                _context.Entry(result).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
 
     }
 }
