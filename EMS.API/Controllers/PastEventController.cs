@@ -9,14 +9,10 @@ using EMS.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-
-
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
-
 using System.Security.Claims;
 using System.Text;
-
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 
@@ -83,12 +79,39 @@ namespace EMS.API.Controllers
             
             try
             {
-                var text = _service.GetAllEvent();
+                DateTime date = DateTime.Today;
+                var text = _service.GetAllEvent().Where(c=>c.StartDate<date).ToList();
+              //  var text = _service.GetAllEvent();
                 return Ok(text);
             }
             catch { return BadRequest(); }
         }
+        [HttpGet("getpasteventlast3")]
+        public IActionResult GetAllEventtop3()
+        {
 
+            try
+            {
+                DateTime date = DateTime.Today;
+                var text = _service.GetAllEvent().Where(c => c.StartDate < date).Take(3).ToList();
+                //  var text = _service.GetAllEvent();
+                return Ok(text);
+            }
+            catch { return BadRequest(); }
+        }
+        [HttpGet("getupcomingeventlast3")]
+        public IActionResult GetEventtop3()
+        {
+
+            try
+            {
+                DateTime date = DateTime.Today;
+                var text = _service.GetAllEvent().Where(c => c.StartDate > date).OrderBy(c=>c.StartDate).Take(3).ToList();
+                //  var text = _service.GetAllEvent();
+                return Ok(text);
+            }
+            catch { return BadRequest(); }
+        }
 
         [HttpGet("getevent/{id}")]
         public IActionResult GetEvent(int id)
@@ -103,7 +126,7 @@ namespace EMS.API.Controllers
         }
 
 
-        [HttpPost("comment")]
+        [HttpPost("addcomment")]
         public IActionResult Comment ([FromForm]Comment cmt)
         {
 
@@ -119,17 +142,44 @@ namespace EMS.API.Controllers
 
         }
 
-        [HttpGet("getcomment")]
-        public IActionResult GetComments()
+
+        [HttpGet("getcomment/{id}")]
+        public IActionResult GetComments(int id)
         {
+            
 
-
-            var result = _service.GetComments();
+            var result = _service.GetComments(id);
             return Ok(result);
 
 
         }
 
+
+        [HttpPost("deleteimage")]
+        public IActionResult deleteimg([FromForm]GetEventImage img)
+        {
+            var deleteimge = _service.Delete(img.Caption);
+            if (deleteimge)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest("werror");
+            }
+
+        }
+        
+        [HttpGet("deletecomment/{id}")]
+        public IActionResult Deletecmnt(int id)
+        {
+            var result = _service.Deletecomment(id);
+            if (result) { return Ok();
+
+            }
+            else
+            { return BadRequest(); }
+        }
     }
 }
 

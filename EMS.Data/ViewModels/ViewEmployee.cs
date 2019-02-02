@@ -9,6 +9,7 @@ namespace EMS.Data.ViewModels
    public class ViewEmployee
     {
         
+        public int Id { get; set; }
         public string EmpId { get; set; }
         public string EmpName { get; set; }
         public string EmpContact { get; set; }

@@ -36,14 +36,20 @@ namespace EMS.Data
         /// <returns>Employee</returns>
         public Employee GetEmployeeById(string id)
         {
+            try
+            {
+                var employees = _context.Employees
+                                .Where(c => c.IsActive == true)
+                                .Where(c => c.EmpId == id)
+                                .OrderByDescending(c => c.Id)
+                                .FirstOrDefault();
 
-            var employees = _context.Employees
-                .Where(c => c.IsActive == true)
-                .Where(c => c.EmpId == id)
-                .OrderByDescending(c => c.Id)
-                .FirstOrDefault();
-
-            return employees;
+                return employees;
+            }
+            catch
+            {
+                return null;
+            }
 
         }
 
@@ -79,7 +85,7 @@ namespace EMS.Data
                             Position positionUser = new Position();
                             positionUser.PositionId = "AD";
                             positionUser.PositionName = "Admin";
-                            positionUser.IsActive = true;
+                          //  positionUser.IsActive = true;
                             _context.Positions.Add(positionUser);
                             _context.SaveChanges();
                         }
@@ -89,7 +95,7 @@ namespace EMS.Data
                             Position positionUser = new Position();
                             positionUser.PositionId = "User";
                             positionUser.PositionName = "User";
-                            positionUser.IsActive = true;
+                          //  positionUser.IsActive = true;
                             _context.Positions.Add(positionUser);
                             _context.SaveChanges();
                         }
@@ -97,7 +103,7 @@ namespace EMS.Data
                         if (countproject == 0)
                         {
                             Project project = new Project();
-                            project.IsActive = true;
+                           // project.IsActive = true;
                             project.ProjectName = "No Project";
                             _context.Projects.Add(project);
                             _context.SaveChanges();
@@ -107,7 +113,7 @@ namespace EMS.Data
                         {
                             Department department = new Department();
                             department.DprtId = "No";
-                            department.IsActive = true;
+                           // department.IsActive = true;
                             department.DprtName = "No Department";
                             _context.Departments.Add(department); 
                             _context.SaveChanges();
@@ -119,7 +125,7 @@ namespace EMS.Data
                     }
                     else
                     {
-                        if(employee.ProjectPrId == null)
+                        if(employee.ProjectPrId == 0 || employee.ProjectPrId == null)
                         {
                             employee.ProjectPrId = 1;
                         }
@@ -191,7 +197,7 @@ namespace EMS.Data
                .Join(_context.Positions,
                    // join position table
                    e2 => e2.e.PositionPId, p => p.PositionId, (e2, p)
-                        => new ViewEmployee {  EmpId = e2.e.EmpId, EmpName = e2.e.EmpName, EmpContact = e2.e.EmpContact, EmpAddress1 = e2.e.EmpAddress1, EmpAddress2 = e2.e.EmpAddress2, EmpGender = e2.e.EmpGender, EmpPosition = p.PositionName, EmpDepartment = e2.d.DprtName, EmpEmail = e2.e.EmpEmail, EmpStartDate = e2.e.StartDate, EmpProfilePicture = e2.e.EmpProfilePicture })
+                        => new ViewEmployee { Id= e2.e.Id, EmpId = e2.e.EmpId, EmpName = e2.e.EmpName, EmpContact = e2.e.EmpContact, EmpAddress1 = e2.e.EmpAddress1, EmpAddress2 = e2.e.EmpAddress2, EmpGender = e2.e.EmpGender, EmpPosition = p.PositionName, EmpDepartment = e2.d.DprtName, EmpEmail = e2.e.EmpEmail, EmpStartDate = e2.e.StartDate, EmpProfilePicture = e2.e.EmpProfilePicture })
                         .ToList();
 
             var employees = (from em in _context.Employees
@@ -201,6 +207,7 @@ namespace EMS.Data
                             //where em.IsActive == true
                             select new ViewEmployee
                             {
+                                Id = em.Id,
                                 EmpId = em.EmpId,
                                 EmpName = em.EmpName,
                                 EmpContact = em.EmpContact,
@@ -227,26 +234,27 @@ namespace EMS.Data
         /// </summary>
         /// <param name="id"></param>
         /// <returns> View Employee modal</returns>
-        public ViewEmployee GetEmployeeDetails(string id)
+        public ViewEmployee GetEmployeeDetails(int id)
         {
             var employees = _context.Employees
                 .Where(c => c.IsActive == true)
-                .Where(c => c.EmpId == id)
+                .Where(c => c.Id == id)
                .Join(_context.Departments,
                e => e.DepartmentDprtId, d => d.DprtId, (e, d) =>
                   new { e, d })
                .Join(_context.Positions,
                    e2 => e2.e.PositionPId, p => p.PositionId, (e2, p)
-                        => new ViewEmployee { EmpId = e2.e.EmpId, EmpName = e2.e.EmpName, EmpContact = e2.e.EmpContact, EmpAddress1 = e2.e.EmpAddress1, EmpAddress2 = e2.e.EmpAddress2, EmpGender = e2.e.EmpGender, EmpPosition = p.PositionName, EmpDepartment = e2.d.DprtName, EmpEmail = e2.e.EmpEmail, EmpStartDate = e2.e.StartDate, EmpProfilePicture = e2.e.EmpProfilePicture })
+                        => new ViewEmployee { Id = e2.e.Id, EmpId = e2.e.EmpId, EmpName = e2.e.EmpName, EmpContact = e2.e.EmpContact, EmpAddress1 = e2.e.EmpAddress1, EmpAddress2 = e2.e.EmpAddress2, EmpGender = e2.e.EmpGender, EmpPosition = p.PositionName, EmpDepartment = e2.d.DprtName, EmpEmail = e2.e.EmpEmail, EmpStartDate = e2.e.StartDate, EmpProfilePicture = e2.e.EmpProfilePicture })
                         .FirstOrDefault();
 
             var employee = (from em in _context.Employees
                        join de in _context.Departments on em.DepartmentDprtId equals de.DprtId
                        join po in _context.Positions on em.PositionPId equals po.PositionId
                        join pr in _context.Projects on em.ProjectPrId equals pr.PrId
-                       where(em.IsActive == true && em.EmpId== id)
+                       where(em.IsActive == true && em.Id== id)
                        select new ViewEmployee
                        {
+                           Id = em.Id,
                            EmpId = em.EmpId,
                            EmpName = em.EmpName,
                            EmpContact = em.EmpContact,

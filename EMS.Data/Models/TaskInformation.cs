@@ -18,13 +18,16 @@ namespace EMS.Data.Models
         public Boolean IsActive { get; set; }
 
         [ForeignKey("Employee")]
-        public int Id { get; set; }
+        public int EmployeeId { get; set; }
 
         [ForeignKey("Task")]
-        public int TaskId { get; set; }
+        public int TaskTaskId { get; set; }
 
        [ForeignKey("Contact")]
-       public int ContactId { get; set; }
+       public int ContactContactId { get; set; }
+        [NotMapped]
+        public string EventName { get; set; }
+
         
     }
 }

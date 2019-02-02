@@ -17,8 +17,9 @@ namespace EMS.Data
 
         public IEnumerable<Contact> GetContactTypes()
         {
+            
             var test = _context.Contacts
-
+                .Where(c => c.IsActive == true)
               .ToList();
             return test;
 
@@ -28,6 +29,7 @@ namespace EMS.Data
         {
             try
             {
+                c.IsActive = true;
                 _context.Contacts.Add(c);
                 _context.SaveChanges();
 
@@ -44,6 +46,7 @@ namespace EMS.Data
         {
             try
             {
+                c.IsActive = true;
                 _context.ContactDetails.Add(c);
                 _context.SaveChanges();
                 int result = _context.ContactDetails.Max(p => p.ContactDetailId);
@@ -55,17 +58,103 @@ namespace EMS.Data
             }
         }
 
+        public Boolean AddContactDetailNormally(ContactDetails c)
+        {
+            try
+            {
+                c.IsActive = true;
+                _context.ContactDetails.Add(c);
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
 
 
-        /*public IEnumerable<TaskInformation> GetAllForType(int id) {
-            var test = _context.TaskInformations
-                .Where(e => e.ContactId.ContactId == id)
+        public IEnumerable<ContactDetails> GetAllForType(int id) {
+            var test = _context.ContactDetails
+                .Where(e => e.ContactContactId == id && e.IsActive == true)
               // .Select(et => et.TaskInformation)
                 .ToList();
             return test;
 
-        }*/
+        }
+
+        public Boolean UpdateContactType(Contact c) {
+            try
+            {
+                _context.Entry(c).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public Boolean DeleteContactType(int id) {
+           
+                var result = _context.Contacts.Where(c => c.IsActive == true && c.ContactId == id).FirstOrDefault();
+                try
+                {
+                    result.IsActive = false;
+                    _context.Entry(result).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    _context.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+
+            
+        }
+        public Boolean DeleteContactDetail(int id)
+        {
+
+            var result = _context.ContactDetails.Where(c => c.IsActive == true && c.ContactDetailId == id).FirstOrDefault();
+            try
+            {
+                result.IsActive = false;
+                _context.Entry(result).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+
+        }
+        public Boolean UpdateContactDetail(ContactDetails c)
+        {
+            try
+            {
+                _context.Entry(c).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        /// <summary>
+        /// get contacts details by task id
+        /// </summary>
+        public IEnumerable<ContactDetails>  GetContactDetailsByTaskId(int id) {
+            var test = _context.ContactDetails
+               .Where(et => et.TaskId == id && et.IsActive == true)
+               //.Select(et => et.Task)
+               .ToList();
+            return test;
+        }
 
     }
 }

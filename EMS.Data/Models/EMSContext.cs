@@ -43,6 +43,16 @@ namespace EMS.Data.Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<CricketTeamRegister> cricketTeamRegisters { get; set; }
         public DbSet<TeamMember> TeamMembers { get; set; }
+        public DbSet<CaptainEmails> CaptainEmails { get; set; }
+        public DbSet<TeamSchedule> TeamSchedules { get; set; }
+        public DbSet<RegEmployee> RegEmployees { get; set; }
+        public DbSet<RegistrationAttribute> RegistrationAttributes { get; set; }
+        public DbSet<Poll> Polls { get; set; }
+        public DbSet<Destination> Destinations { get; set; }
+        public DbSet<VotedEmployees> VotedEmployee { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<NotificationViewEmployee> NotificationViewEmployees { get; set; }
+
 
 
         /* protected override void OnModelCreating(ModelBuilder modelBuilder)

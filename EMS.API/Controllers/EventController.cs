@@ -23,10 +23,11 @@ namespace EMS.API.Controllers
             _service = new EventService(_context);
         }
 
-
+      
         [HttpPost("createevent")]
         public IActionResult CreateEvent([FromForm]Event even)
         {
+
             string res = "";
             if (even.EventImage != null)
             {
@@ -69,17 +70,16 @@ namespace EMS.API.Controllers
         [HttpPost("updateevent")]
         public IActionResult UpdateProject([FromForm]Event even)
         {
-
             string res = "";
             if (even.EventImage != null)
             {
                 // add profile picture 
                 res = AddFiles.AddImage(even.EventImage, even.EventTitle);
                 even.EventImage = null;
-                even.EventImageUrl = res;
+
 
             }
-
+            even.EventImageUrl = res;
 
             if (_service.UpdateEvent(even))
             {
@@ -110,7 +110,7 @@ namespace EMS.API.Controllers
 
         [Produces("application/json")]
         [HttpGet("getall/{id}")]
-        public Event GetEventDetails(string id)
+        public Event GetEventDetails(int id)
         {
             return _service.GetEventDetails(id);
         }
@@ -199,12 +199,8 @@ namespace EMS.API.Controllers
                 return BadRequest("error");
             }
 
+
+
         }
-
-
-        
-
-     
     }
-       
 }

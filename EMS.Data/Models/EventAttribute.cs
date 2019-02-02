@@ -18,6 +18,10 @@ namespace EMS.Data.Models
         public Boolean IsFamilyMembersAllowed { get; set; }
         public Boolean Venue { get; set; }
         public Boolean NumberOfTeams { get; set; }
+        public Boolean BudgetedCost { get; set; }
+        public Boolean ActualCost { get; set; }
+        public Boolean MainOrganiZer { get; set; }
+        public Boolean Summary { get; set; }
 
         [ForeignKey("Event")]
         public int EventId { get; set; }

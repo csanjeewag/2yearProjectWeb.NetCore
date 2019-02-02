@@ -18,5 +18,8 @@ namespace EMS.Data.Models
         public int EmployeeId { get; set; } 
         [ForeignKey("Event")]
         public int EventId { get; set; }
+        [NotMapped]
+        public string Author { get; set; }
+        
 }
 }

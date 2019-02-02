@@ -51,10 +51,10 @@ namespace EMS.API.Ulities
         public static Boolean SendloginCode(string code,string email, string name)
         {
             string subject = "Event manement System in Creative Software!";
-            string body ="<h5>Hello "+name+" ,</h5><br>"+
-                "<html><h4>You are Welcome to Event management system," +
+            string body ="<h2>Hi, "+name+" ,</h2><br>"+
+                "<html><h2>You are Welcome to Event management system," +
                  " <h2><a href=" + "http://localhost:4200/profile/register?email=" + email + "&code=" + code + "&name=" + name + " > Register link</a></h2>" +
-                " you should use this code <h1>" + code + "</h1>for finish registration.</h4></html>"+
+                " you should use this code <h1>" + code + "</h1>for finish registration.</h2></html>"+
                 " <img  style ="+"width:400px"+" src="+"https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg"+">";
                 
 
@@ -67,12 +67,29 @@ namespace EMS.API.Ulities
         public static Boolean SendForgetPasswordCode(string code, string email, string name)
         {
             string subject = "Event manement System in Creative Software!";
-            string body = "<h5>Hello " + name + " ,</h5><br>" +
-                "<html><h4>If You forget your password,</h4>" +
-                 "<h4> <h2><a href=" + "http://localhost:4200/profile/forgetpassword?email=" + email + "&code=" + code + "&name=" + name + " > new password</a></h2>" +
-                " you should use this code <h1>" + code + "</h1>for get new password.</h4></html>" +
+            string body = "<h2>Hi, " + name + " ,</h2><br>" +
+                "<html><h2>If You forget your password,</h2>" +
+                 "<h3> <h2><a href=" + "http://localhost:4200/profile/forgetpassword?email=" + email + "&code=" + code + "&name=" + name + " > new password</a></h3>" +
+                " you should use this code <h1>" + code + "</h1>for get new password.</h2></html>" +
                 " <img  style =" + "width:400px" + " src=" + "https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" + ">";
 
+
+
+
+            return SendEmail(email, subject, body);
+
+        }
+
+        public static Boolean SendEmailstoEmployees(string topic, string email, string name,string eventname,string des1,string des2,string des3)
+        {
+            string subject = "EMS system, "+topic;
+            string body = "<h1>Hi ,you are one of teamleader in "+eventname+"</h1><br>" +
+               "<h2>I am "+name+"<br>"+
+               " "+des1+"<br>"+
+               " "+des2+"<br>"+
+                " " + des3 + "<br>" +
+                "Thank you! </h2>"
+               ;
 
 
 

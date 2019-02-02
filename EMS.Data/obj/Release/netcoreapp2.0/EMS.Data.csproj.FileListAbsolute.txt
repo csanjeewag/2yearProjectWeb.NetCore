@@ -25,3 +25,66 @@ D:\softawre project\WebAPI\Project API\EMS3 - Copy\EMS.Data\obj\Release\netcorea
 D:\softawre project\WebAPI\Project API\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfo.cs
 D:\softawre project\WebAPI\Project API\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.dll
 D:\softawre project\WebAPI\Project API\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\Project original1\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.deps.json
+D:\softawre project\WebAPI\Project API\Project original1\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\Project original1\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\Project original1\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csprojResolveAssemblyReference.cache
+D:\softawre project\WebAPI\Project API\Project original1\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csproj.CoreCompileInputs.cache
+D:\softawre project\WebAPI\Project API\Project original1\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfoInputs.cache
+D:\softawre project\WebAPI\Project API\Project original1\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfo.cs
+D:\softawre project\WebAPI\Project API\Project original1\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\Project original1\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\project orinal 2\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.deps.json
+D:\softawre project\WebAPI\Project API\project orinal 2\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\project orinal 2\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\project orinal 2\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csprojResolveAssemblyReference.cache
+D:\softawre project\WebAPI\Project API\project orinal 2\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csproj.CoreCompileInputs.cache
+D:\softawre project\WebAPI\Project API\project orinal 2\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfoInputs.cache
+D:\softawre project\WebAPI\Project API\project orinal 2\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfo.cs
+D:\softawre project\WebAPI\Project API\project orinal 2\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\project orinal 2\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\projetoriginal3\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csprojResolveAssemblyReference.cache
+D:\softawre project\WebAPI\Project API\projetoriginal3\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csproj.CoreCompileInputs.cache
+D:\softawre project\WebAPI\Project API\projetoriginal3\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfoInputs.cache
+D:\softawre project\WebAPI\Project API\projetoriginal3\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfo.cs
+D:\softawre project\WebAPI\Project API\projetoriginal3\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\projetoriginal3\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\projetoriginal3\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.deps.json
+D:\softawre project\WebAPI\Project API\projetoriginal3\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\projetoriginal3\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\project original4\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.deps.json
+D:\softawre project\WebAPI\Project API\project original4\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\project original4\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\project original4\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csprojResolveAssemblyReference.cache
+D:\softawre project\WebAPI\Project API\project original4\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csproj.CoreCompileInputs.cache
+D:\softawre project\WebAPI\Project API\project original4\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfoInputs.cache
+D:\softawre project\WebAPI\Project API\project original4\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfo.cs
+D:\softawre project\WebAPI\Project API\project original4\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\project original4\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\projectoriginal5\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.deps.json
+D:\softawre project\WebAPI\Project API\projectoriginal5\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\projectoriginal5\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\projectoriginal5\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csprojResolveAssemblyReference.cache
+D:\softawre project\WebAPI\Project API\projectoriginal5\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csproj.CoreCompileInputs.cache
+D:\softawre project\WebAPI\Project API\projectoriginal5\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfoInputs.cache
+D:\softawre project\WebAPI\Project API\projectoriginal5\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfo.cs
+D:\softawre project\WebAPI\Project API\projectoriginal5\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\projectoriginal5\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\project original6\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.deps.json
+D:\softawre project\WebAPI\Project API\project original6\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\project original6\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\project original6\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csprojResolveAssemblyReference.cache
+D:\softawre project\WebAPI\Project API\project original6\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csproj.CoreCompileInputs.cache
+D:\softawre project\WebAPI\Project API\project original6\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfoInputs.cache
+D:\softawre project\WebAPI\Project API\project original6\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfo.cs
+D:\softawre project\WebAPI\Project API\project original6\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\project original6\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.deps.json
+D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Data\bin\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csprojResolveAssemblyReference.cache
+D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.csproj.CoreCompileInputs.cache
+D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfoInputs.cache
+D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.AssemblyInfo.cs
+D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Data\obj\Release\netcoreapp2.0\EMS.Data.pdb

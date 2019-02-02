@@ -15,6 +15,7 @@ namespace EMS.Data.ViewModels
         public int LiquorCount { get; set; }
         public string Description { get; set; }
         public DateTime Registerdate { get; set; }
+        
        
     }
 }

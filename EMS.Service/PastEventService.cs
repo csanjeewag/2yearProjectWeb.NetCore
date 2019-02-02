@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using EMS.Data.Models;
+using EMS.Data.ViewModels;
 
 namespace EMS.Service
 {
@@ -38,14 +39,32 @@ namespace EMS.Service
 
         public Boolean AddComment(Comment cmt)
         {
+           
             return _service.AddComment(cmt);
         }
-
-        public IEnumerable<Comment> GetComments()
+        public Boolean EditComment(Comment cmt)
         {
 
-            return _service.GetComments();
+            return _service.EditComment(cmt);
+        }
 
+        public IEnumerable<ViewEmployeeforcomment> GetComments(int id)
+        {
+
+            return _service.GetComments(id);
+
+        }
+
+        public Boolean Delete(string img)
+        {
+            
+            return _service.Delete(img);
+        }
+
+        public Boolean Deletecomment( int id)
+        {
+
+            return _service.Deletecomment(id);
         }
     }
 

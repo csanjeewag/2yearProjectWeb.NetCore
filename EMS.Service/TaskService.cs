@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EMS.Service
 {
-  public  class TaskService
+    public class TaskService
     {
         private readonly EMS.Data.TaskRepository _service;
 
@@ -17,8 +17,8 @@ namespace EMS.Service
             _context = context;
             _service = new EMS.Data.TaskRepository(_context);
         }
-       
-         public IEnumerable<Task> GetTaskForEmployee(int id)
+
+        public IEnumerable<Task> GetTaskForEmployee(int id)
         {
 
             return _service.GetTaskForEmployee(id);
@@ -30,12 +30,15 @@ namespace EMS.Service
             return _service.AddTask(t);
         }
 
-        
+
         public Boolean AddEmployeeTask(EmployeeTask etask)
         {
             return _service.AddEmployeeTask(etask);
         }
-
+        public Boolean AddNotificationTask(EmployeeTask etask, Task task)
+        {
+            return _service.AddNotificationTask(etask, task);
+        }
 
         /// <summary>
         /// get task by Id service
@@ -48,12 +51,12 @@ namespace EMS.Service
 
         }
 
-        public Boolean UpdateTask(Task t)
+        /*public Boolean UpdateTask(Task t)
         {
             return _service.UpdateTask(t);
-        }
-       
-        
+        }*/
+
+
 
         public IEnumerable<Task> GetTaskDetails()
         {
@@ -64,7 +67,13 @@ namespace EMS.Service
         public IEnumerable<Employee> GetEmployeesForTask(int id) {
             return _service.GetEmployeesForTask(id);
         }
+        public Boolean DeleteTask(int id)
+        {
+            return _service.DeleteTask(id);
+        }
+        public IEnumerable<Task> GetComletedTasks() {
+            return _service.GetComletedTasks();
+        }
 
-        
     }
 }

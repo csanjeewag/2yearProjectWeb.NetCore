@@ -37,7 +37,11 @@ namespace EMS.Data.Models
         public virtual ICollection<EmployeeTask> EmployeeTasks { get; set; }
         public virtual ICollection<TaskInformation> TaskInformations { get; set; }
         public virtual ICollection<TeamMember> TeamMembers { get; set; }
-
+        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<EventImages> EventImages { get; set; }
+        public virtual ICollection<RegEmployee> RegEmployees { get; set; }
+        public  IEnumerable<VotedEmployees> VotedEmployee { get; set; }
+      //  public virtual NotificationViewEmployee NotificationViewEmployee { get; set; }
 
 
     }

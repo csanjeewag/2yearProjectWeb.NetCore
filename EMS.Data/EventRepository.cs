@@ -17,8 +17,11 @@ namespace EMS.Data
         {
             try
             {
+              
+
                 _context.Events.Add(eve);
                 _context.SaveChanges();
+                this.AddNotificationTask(eve);
 
                 return true;
             }
@@ -49,10 +52,16 @@ namespace EMS.Data
         {
             try
                 {
-                   
+                if (project.EventImageUrl=="")
+                {
+                    var imageurl = _context.Events.Where(c => c.Id == project.Id).Select(x => x.EventImageUrl).FirstOrDefault();
+                    project.EventImageUrl = imageurl;
+                }
+              
                     _context.Entry(project).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     _context.SaveChanges();
-                    return true;
+                    this.UpdateNotification(project); //for update notification
+                return true;
                 }
                 catch
                 {
@@ -67,6 +76,7 @@ namespace EMS.Data
 
                 _context.Entry(project).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();
+                
                 return true;
             }
             catch
@@ -75,12 +85,12 @@ namespace EMS.Data
             }
 
         }
-        public Event GetEventDetails(string id)
+        public Event GetEventDetails(int id)
         {
             
-            int x = Int32.Parse(id);
+            //int x = Int32.Parse(id);
             var eve = _context.Events
-                .Where(c => c.Id == x).FirstOrDefault();
+                .Where(c => c.Id == id).FirstOrDefault();
 
             return eve;
 
@@ -161,8 +171,51 @@ namespace EMS.Data
             return test;
         }
 
-       
-      
+        public Boolean AddNotificationTask(Event even)
+        {
+            try
+            {
+                
+                Notification notification = new Notification();
+                notification.Data = even.EventTitle + " on " + even.StartDate.ToLongDateString();
+                notification.EventId = even.Id;
+                notification.DataType = "new event:";
+                notification.Date = DateTime.Today;
+                notification.Url = "events/vieweventpage/"+even.Id;
+                notification.View = false;
+                notification.All = true;
+                notification.senderId = 0;
+                notification.Sendernme = "Recreation committee";
+                _context.Notifications.Add(notification);
+                _context.SaveChanges();
 
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public Boolean UpdateNotification(Event even)
+        {
+            try
+            {
+              
+                var notifications = _context.Notifications.Where(c => c.EventId == even.Id).ToList();
+                foreach (var item in notifications)
+                {
+                    item.Data = even.EventTitle + " on " + even.StartDate.ToLongDateString();
+                    _context.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    _context.SaveChanges();
+
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

@@ -94,7 +94,7 @@ namespace EMS.Service
             return _service.GetEmployeesDetails();
         }
 
-        public ViewEmployee GetEmployeeDetails(string id)
+        public ViewEmployee GetEmployeeDetails(int id)
         {
 
 

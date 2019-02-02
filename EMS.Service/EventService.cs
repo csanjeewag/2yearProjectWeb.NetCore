@@ -36,7 +36,7 @@ namespace EMS.Service
             return _service.SelectAttributes(even);
         }
 
-        public Event GetEventDetails(string id)
+        public Event GetEventDetails(int id)
         {
             return _service.GetEventDetails(id);
         }
@@ -78,11 +78,6 @@ namespace EMS.Service
         }
 
        
-
-        
-
-       
-
        
     }
 }

@@ -15,8 +15,9 @@ namespace EMS.Data.Models
         public int EventId { get; set; }
         public DateTime CommentTime { get; set; }
         [ForeignKey("Employee")]
-        public string Author { get; set; }
+        public int EmployeeId { get; set; }
         public string CommentIn { get; set; } 
+        public Boolean isActive { get; set; }
 
     }
 }

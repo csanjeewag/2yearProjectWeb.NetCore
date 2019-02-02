@@ -20,10 +20,11 @@ public class Task
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime AddDate { get; set; }
-        public string EventName { get; set; }
+        [ForeignKey("Event")]
+        public int EventId { get; set; }
         public float BudgetedCost { get; set; }
         public float ActualCost { get; set; }
-
+        public Boolean IsActive { get; set; }
         public string Description { get; set; }
         public Boolean Status { get; set; }
               

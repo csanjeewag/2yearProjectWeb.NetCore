@@ -69,10 +69,16 @@ namespace EMS.API.Controllers
         public IActionResult GetEmployeesDetails()
         {
 
-
-            var result = _service.GetEmployeesDetails();
-            var result2 = result.Where(c => c.IsActive == true).ToList();
-            return Ok(result2);
+            try
+            {
+                var result = _service.GetEmployeesDetails();
+                var result2 = result.Where(c => c.IsActive == true).ToList();
+                return Ok(result2);
+            }
+            catch
+            {
+                return BadRequest();
+            }
 
 
         }
@@ -83,7 +89,7 @@ namespace EMS.API.Controllers
         /// <returns></returns>
         [Produces("application/json")]
         [HttpGet("getall/{id}")]
-        public IActionResult GetEmployeeDetails(string id)
+        public IActionResult GetEmployeeDetails(int id)
         {
 
 
@@ -303,11 +309,11 @@ namespace EMS.API.Controllers
                 var data = _service.GetEmployeeByEmail(logins.EmpEmail);
                 var Emprole = data.PositionPId;
                 var EmpName = data.EmpName;
-                var Empid = data.EmpId;
+                var Empid = data.Id;
                 
 
                 
-                GetTokenModel token = GetToken.getToken(Emprole, Empid, EmpName);
+                GetTokenModel token = GetToken.getToken(Emprole, Empid.ToString(), EmpName);
 
                 return Ok(new
                 {

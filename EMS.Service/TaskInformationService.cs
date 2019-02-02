@@ -34,6 +34,27 @@ namespace EMS.Service
             return _service.GetInfoByType(id);
 
         }*/
+        public int AddContactDetail(ContactDetails c)
+        {
+            return _service.AddContactDetail(c);
+        }
 
+
+
+        public Boolean UpdateTaskInformation(TaskInformation c)
+        {
+            return _service.UpdateTaskInformation(c);
+        }
+
+        public Boolean DeleteInformation(int id)
+        {
+            return _service.DeleteInformation(id);
+         }
+
+        public IEnumerable<TaskInformation> GetTaskInformationkBytaskId(int id)
+        {
+            return _service.GetTaskInformationkBytaskId(id);
+
+        }
     }
 }

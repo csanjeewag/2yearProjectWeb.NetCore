@@ -60,7 +60,8 @@ namespace EMS.API.Controllers
         public IActionResult AddTask([FromBody]GetTask t)
         {
             Task task = new Task();
-            task.EventName = t.EventName;
+            task.TaskId = t.TaskId;
+            task.EventId = t.EventId;
             task.EndDate = t.EndDate;
             task.StartDate = t.StartDate;
             task.Status = t.Status;
@@ -84,7 +85,9 @@ namespace EMS.API.Controllers
                    // int x = Int32.Parse(i);
                     eTask.EId = t.Employees[x];
                     eTask.TaskId = taskid;
+
                     _service.AddEmployeeTask(eTask);
+                    _service.AddNotificationTask(eTask, task);
                     x++;
                 }
                
@@ -96,9 +99,20 @@ namespace EMS.API.Controllers
                 return BadRequest("error");
             }
         }
+        [Produces("application/json")]
+        [HttpGet("getcompletedtasks")]
+        public IActionResult GetContactTypes()
+        {
 
 
-       
+            var result = _service.GetComletedTasks();
+            return Ok(result);
+
+
+        }
+
+
+
 
 
         /// <summary>
@@ -116,7 +130,18 @@ namespace EMS.API.Controllers
 
 
         }
-        
+        [Produces("application/json")]
+        [HttpGet("getall/{id}")]
+        public IActionResult GetTaskDetailsbyevent(int id)
+        {
+
+
+            var result = _service.GetTaskDetails().Where(x=>x.EventId == id).ToList();
+            return Ok(result);
+
+
+        }
+
         /*[Produces("application/json")]
         [HttpGet("getall/{id}")]
         public IActionResult GetTaskDetails(string id)
@@ -150,22 +175,33 @@ namespace EMS.API.Controllers
         /// <param name="t"></param>
         /// <returns></returns>
         
-        [Produces("application/json")]
+      /*  [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPost("updatetask")]
-        public IActionResult UpdateTask([FromBody]Task t)
+        public IActionResult UpdateTask([FromForm]GetTask t)
         {
 
-            if (_service.UpdateTask(t))
-            {
+            Task task = new Task();
+            task.EventName = t.EventName;
+            task.EndDate = t.EndDate;
+            task.StartDate = t.StartDate;
+            task.Status = t.Status;
+            task.TaskName = t.TaskName;
+            task.Description = t.Description;
+            task.BudgetedCost = t.BudgetedCost;
+            task.AddDate = t.AddDate;
 
-                return Ok(t);
-            }
-            else
+            EmployeeTask eTask = new EmployeeTask();
+            //eTask.EmpId = t.Employees[0];
+            int x = 0;
+            foreach (var i in t.Employees)
             {
-                return BadRequest("there error");
+                // int x = Int32.Parse(i);
+                eTask.EId = t.Employees[x];                
+                _service.AddEmployeeTask(eTask);
+                x++;
             }
-        }
+        }*/
 
 
         /// <summary>
@@ -199,7 +235,13 @@ namespace EMS.API.Controllers
 
         }
 
-        
+        [HttpGet("deletetask/{id}")]
+        public Boolean DeleteTask(int id)
+        {
+            return _service.DeleteTask(id);
+        }
+
+
 
 
     }

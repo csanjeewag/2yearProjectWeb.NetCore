@@ -20,6 +20,7 @@ namespace EMS.Data.Models
 
         public virtual IEnumerable<TaskInformation> TaskInformation { get; set; }
 
+        public IEnumerable<ContactDetails> ContactDetails { get; set; }
 
     }
 }
