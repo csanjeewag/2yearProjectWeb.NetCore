@@ -612,7 +612,10 @@ namespace EMS.Data
             return false;
         }
 
-
+        public ViewEmployee GetProfilePic(int id)
+        {
+            return _context.Employees.Where(c => c.Id == id).Select( c=> new ViewEmployee { EmpName = c.EmpName , EmpProfilePicture = c.EmpProfilePicture }).FirstOrDefault();
+        }
       
     }
 }

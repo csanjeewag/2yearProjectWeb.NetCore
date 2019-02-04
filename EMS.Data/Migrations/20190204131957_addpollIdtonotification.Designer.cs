@@ -11,9 +11,10 @@ using System;
 namespace EMS.Data.Migrations
 {
     [DbContext(typeof(EMSContext))]
-    partial class EMSContextModelSnapshot : ModelSnapshot
+    [Migration("20190204131957_addpollIdtonotification")]
+    partial class addpollIdtonotification
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -127,8 +128,6 @@ namespace EMS.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("ContactType");
-
-                    b.Property<string>("Description");
 
                     b.Property<bool>("IsActive");
 

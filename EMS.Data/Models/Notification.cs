@@ -15,6 +15,7 @@ namespace EMS.Data.Models
         public int EmployeeId { get; set; }
         public int TaskId { get; set; }
         public int EventId { get; set; }
+        public int PollId { get; set; }
         public Boolean View { get; set; }
         public Boolean All { get; set; }
         [NotMapped]

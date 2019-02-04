@@ -141,14 +141,29 @@ namespace EMS.API.Controllers
 
 
         [Produces("application/json")]
-        [HttpGet("/{id}")]
+        [HttpGet("getbytaskid/{id}")]
 
-        public IEnumerable<ContactDetails> GetContactDetailsByTaskId(int id)
+        public IActionResult GetContactDetailsByTaskId(int id)
         {
-            return _service.GetContactDetailsByTaskId(id);
-
+            var result= _service.GetContactDetailsByTaskId(id);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return null;
+            }
         }
 
+        [Produces("application/json")]
+        [HttpGet("getdetailbyid/{id}")]
+
+        public ContactDetails GetContactDetailsById(int id)
+        {
+            return _service.GetContactDetailsById(id);
+
+        }
 
 
 

@@ -63,6 +63,13 @@ namespace EMS.API.Controllers
         }
 
         [Produces("application/json")]
+        [HttpGet("getPoll")]
+        public Poll GetLastPoll()
+        {
+            return _service.GetLastPoll();
+        }
+
+        [Produces("application/json")]
         [HttpGet("getDestination/{id}")]
         public IEnumerable<Destination> GetDestination(string id)
         {

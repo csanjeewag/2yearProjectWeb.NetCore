@@ -426,5 +426,13 @@ namespace EMS.API.Controllers
                 return Ok("password change success");
             else return BadRequest("password change failed");
         }
+
+        [HttpGet("profilepicture/{id}")]
+        public IActionResult GetProfilePic(int id)
+        {
+            var result = _service.GetProfilePic(id);
+            return Ok(result);
+        }
+
     }
 }

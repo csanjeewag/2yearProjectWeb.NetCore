@@ -64,8 +64,14 @@ namespace EMS.Service
         {
             return _service.UpdateContactDetail(c);
         }
-        public IEnumerable<ContactDetails> GetContactDetailsByTaskId(int id) {
+        public List<ContactDetails> GetContactDetailsByTaskId(int id) {
            return  _service.GetContactDetailsByTaskId(id);
         }
+        public ContactDetails GetContactDetailsById(int id)
+        {
+            return _service.GetContactDetailsById(id);
+        }
+
+
     }
 }

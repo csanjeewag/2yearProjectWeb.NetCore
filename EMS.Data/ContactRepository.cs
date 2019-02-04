@@ -136,6 +136,7 @@ namespace EMS.Data
         {
             try
             {
+                c.IsActive = true;
                 _context.Entry(c).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();
                 return true;
@@ -148,11 +149,28 @@ namespace EMS.Data
         /// <summary>
         /// get contacts details by task id
         /// </summary>
-        public IEnumerable<ContactDetails>  GetContactDetailsByTaskId(int id) {
+        public List<ContactDetails>  GetContactDetailsByTaskId(int id) {
+            try
+            {
+                var test = _context.ContactDetails
+           .Where(et => et.TaskId == id && et.IsActive == true)
+           //.Select(et => et.Task)
+           .ToList();
+                return test;
+            }
+            catch
+            {
+                return null;
+            }
+        
+        }
+
+        public ContactDetails GetContactDetailsById(int id)
+        {
             var test = _context.ContactDetails
-               .Where(et => et.TaskId == id && et.IsActive == true)
+               .Where(et => et.ContactDetailId == id && et.IsActive == true)
                //.Select(et => et.Task)
-               .ToList();
+               .FirstOrDefault();
             return test;
         }
 

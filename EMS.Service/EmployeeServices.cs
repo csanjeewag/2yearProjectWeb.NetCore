@@ -134,6 +134,10 @@ namespace EMS.Service
             return _service.ChangePassword(changePassword);
         }
 
+        public ViewEmployee GetProfilePic(int id)
+        {
+            return _service.GetProfilePic(id);
+        }
 
 
     }

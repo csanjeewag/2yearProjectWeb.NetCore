@@ -30,6 +30,10 @@ namespace EMS.Service
             return _service.GetPoll(id);
         }
 
+        public Poll GetLastPoll()
+        {
+            return _service.GetLastPoll();
+        }
         public IEnumerable<Destination> GetDestination(string id)
         {
 

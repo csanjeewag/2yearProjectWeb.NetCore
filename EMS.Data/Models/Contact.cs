@@ -16,6 +16,7 @@ namespace EMS.Data.Models
         public int ContactId { get; set; }
 
         public string ContactType { get; set; }
+        public string Description { get; set; }
         public Boolean IsActive { get; set; }
 
         public virtual IEnumerable<TaskInformation> TaskInformation { get; set; }

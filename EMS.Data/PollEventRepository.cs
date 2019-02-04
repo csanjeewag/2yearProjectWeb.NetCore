@@ -20,6 +20,7 @@ namespace EMS.Data
             {
                 _context.Polls.Add(eve);
                 _context.SaveChanges();
+                this.AddNotificationPoll(eve);
 
                 return true;
             }
@@ -52,6 +53,16 @@ namespace EMS.Data
             int x = Int32.Parse(id);
             var eve = _context.Polls
                 .Where(c => c.Id == x).FirstOrDefault();
+
+            return eve;
+
+        }
+        public Poll GetLastPoll()
+        {
+
+            
+            var eve = _context.Polls.Where(c=>c.IsActive==true).OrderByDescending(c=>c.Id)
+                .FirstOrDefault();
 
             return eve;
 
@@ -121,6 +132,7 @@ namespace EMS.Data
 
                 _context.Entry(project).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();
+                this.UpdateNotification(project);
                 return true;
             }
             catch
@@ -128,6 +140,53 @@ namespace EMS.Data
                 return false;
             }
 
+        }
+
+        public Boolean AddNotificationPoll(Poll poll)
+        {
+            try
+            {
+
+                Notification notification = new Notification();
+                notification.Data = poll.Title + "  deadline: " + poll.ClosingDate.ToLongDateString();
+                notification.PollId = poll.Id;
+                notification.DataType = "new poll added:";
+                notification.Date = DateTime.Today;
+                notification.Url = "events/viewPoll/";
+                notification.View = false;
+                notification.All = true;
+                notification.senderId = 0;
+                notification.Sendernme = "Recreation committee";
+                _context.Notifications.Add(notification);
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public Boolean UpdateNotification(Poll poll)
+        {
+            try
+            {
+
+                var notifications = _context.Notifications.Where(c => c.PollId == poll.Id).ToList();
+                foreach (var item in notifications)
+                {
+                    item.All = false;
+                    _context.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    _context.SaveChanges();
+
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
