@@ -83,7 +83,7 @@ namespace EMS.API.Ulities
         public static Boolean SendEmailstoEmployees(string topic, string email, string name,string eventname,string des1,string des2,string des3)
         {
             string subject = "EMS system, "+topic;
-            string body = "<h1>Hi ,you are one of teamleader in "+eventname+"</h1><br>" +
+            string body = "<h1>Hi ,you are one of captains in "+eventname+"</h1><br>" +
                "<h2>I am "+name+"<br>"+
                " "+des1+"<br>"+
                " "+des2+"<br>"+

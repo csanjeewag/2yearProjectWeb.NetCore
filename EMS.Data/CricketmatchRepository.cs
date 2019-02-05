@@ -163,11 +163,14 @@ namespace EMS.Data
             try
             {
             
-               var result = _context.CaptainEmails.Where(c => c.EventId == eventId).FirstOrDefault();
-               var sendername = _context.Employees.Where(c => c.Id == result.SenderId).Select(c => c.EmpName).FirstOrDefault();
-                var eventname = _context.Events.Where(c => c.Id == result.EventId).Select(c => c.EventTitle).FirstOrDefault();
+               var result = _context.CaptainEmails.Where(c => c.EventId == eventId).OrderByDescending(c=>c.Id).FirstOrDefault();
+             
+                var sendername = _context.Employees.Where(c => c.Id == result.SenderId).Select(c => c.EmpName).FirstOrDefault();
+               var eventname = _context.Events.Where(c => c.Id == result.EventId).Select(c => c.EventTitle).FirstOrDefault();
+             
+              
                 result.Eventname = eventname;
-                result.Sendername = sendername;
+                result.Sendername = sendername;        
                 return result;
             }
             catch

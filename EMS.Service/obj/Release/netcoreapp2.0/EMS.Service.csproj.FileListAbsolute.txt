@@ -118,3 +118,15 @@ D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Service
 D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.csproj.CopyComplete
 D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.dll
 D:\softawre project\WebAPI\Project API\project original7\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.pdb
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\bin\Release\netcoreapp2.0\EMS.Service.deps.json
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\bin\Release\netcoreapp2.0\EMS.Service.dll
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\bin\Release\netcoreapp2.0\EMS.Service.pdb
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\bin\Release\netcoreapp2.0\EMS.Data.dll
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\bin\Release\netcoreapp2.0\EMS.Data.pdb
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.csprojResolveAssemblyReference.cache
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.csproj.CoreCompileInputs.cache
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.AssemblyInfoInputs.cache
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.AssemblyInfo.cs
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.csproj.CopyComplete
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.dll
+D:\softawre project\WebAPI\Project API\project original8\EMS3 - Copy\EMS.Service\obj\Release\netcoreapp2.0\EMS.Service.pdb

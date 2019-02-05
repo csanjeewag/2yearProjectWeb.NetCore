@@ -23,7 +23,6 @@ namespace EMS.Data.Models
         public string Eventname { get; set; }
         [NotMapped]
         public string Sendername { get; set; } 
-
-
+        
     }
 }

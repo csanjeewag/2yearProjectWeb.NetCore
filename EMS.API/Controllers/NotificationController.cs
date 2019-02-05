@@ -30,11 +30,12 @@ namespace EMS.API.Controllers
         public IActionResult ViewNotifation(int id)
         {
 
-            var result= _service.ViewNotifation(id);
+            var result = _service.ViewNotifation(id).OrderByDescending(c => c.Id).Take(15).ToList();
             var count = result.Select(x => x.Id).Count();
             result[0].count = count;
             if (result != null)
             {
+                
                 return Ok(result);
             }
             else

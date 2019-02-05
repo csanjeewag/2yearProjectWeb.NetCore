@@ -175,9 +175,18 @@ namespace EMS.API.Controllers
             return _service.ViewSchedule(id);
         }
         [HttpGet("getallshedulebyeventid/{id}")]
-        public List<TeamSchedule> Getallschedule(int id)
+        public IActionResult Getallschedule(int id)
         {
-            return _service.Getallschedule(id);
+            
+            try
+            {
+                var result = _service.Getallschedule(id);
+                return Ok(result);
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
     }
