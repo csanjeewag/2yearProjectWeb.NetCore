@@ -63,7 +63,13 @@ namespace EMS.Service
             return _service.UpdateEmployee(emp);
         }
 
-       
+        public int UpdateEmployeeProfile(Employee emp)
+        {
+            
+            emp.IsActive = true;
+
+            return _service.UpdateEmployeeProfile(emp);
+        }
 
         
 

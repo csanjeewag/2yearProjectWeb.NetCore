@@ -85,7 +85,7 @@ namespace EMS.Data
                             Position positionUser = new Position();
                             positionUser.PositionId = "AD";
                             positionUser.PositionName = "Admin";
-                          //  positionUser.IsActive = true;
+                            positionUser.IsActive = true;
                             _context.Positions.Add(positionUser);
                             _context.SaveChanges();
                         }
@@ -95,7 +95,17 @@ namespace EMS.Data
                             Position positionUser = new Position();
                             positionUser.PositionId = "User";
                             positionUser.PositionName = "User";
-                          //  positionUser.IsActive = true;
+                            positionUser.IsActive = true;
+                            _context.Positions.Add(positionUser);
+                            _context.SaveChanges();
+                        }
+                        var countRC = _context.Positions.Where(c => c.PositionId == "RC").Count();
+                        if (countRC == 0)
+                        {
+                            Position positionUser = new Position();
+                            positionUser.PositionId = "RC";
+                            positionUser.PositionName = "RC";
+                            positionUser.IsActive = true;
                             _context.Positions.Add(positionUser);
                             _context.SaveChanges();
                         }
@@ -103,7 +113,8 @@ namespace EMS.Data
                         if (countproject == 0)
                         {
                             Project project = new Project();
-                           // project.IsActive = true;
+                            project.IsActive = true;
+                            project.ProjectId = "No";
                             project.ProjectName = "No Project";
                             _context.Projects.Add(project);
                             _context.SaveChanges();
@@ -113,7 +124,7 @@ namespace EMS.Data
                         {
                             Department department = new Department();
                             department.DprtId = "No";
-                           // department.IsActive = true;
+                            department.IsActive = true;
                             department.DprtName = "No Department";
                             _context.Departments.Add(department); 
                             _context.SaveChanges();
@@ -175,6 +186,41 @@ namespace EMS.Data
                 if (employee.EmpProfilePicture == null || employee.EmpProfilePicture == "")
                 { employee.EmpProfilePicture = employeedetail.EmpProfilePicture; }
                 employee.Id = employeedetail.Id;
+                _context.Entry(employee).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _context.SaveChanges();
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// return boolean value after update employee
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns>boolean</returns>
+        public int UpdateEmployeeProfile(Employee employee)
+        {
+            
+            
+
+            try
+            {
+               
+                //get employees' positionid and profile pic name
+                 var employeedetail = _context.Employees.Where(c => c.EmpEmail == employee.EmpEmail).Select(c => new { c.EmpProfilePicture, c.PositionPId, c.RegisterCode, c.Id, c.EmpPassword }).FirstOrDefault();
+                
+                if (employee.PositionPId == null || employee.PositionPId == "")
+                { employee.PositionPId = employeedetail.PositionPId; }
+
+                employee.RegisterCode = employeedetail.RegisterCode;
+                //if there is not new employee picture leave the previous profile pic name
+                if (employee.EmpProfilePicture == null || employee.EmpProfilePicture == "")
+                { employee.EmpProfilePicture = employeedetail.EmpProfilePicture; }
+                employee.Id = employeedetail.Id;
+                employee.EmpPassword = employeedetail.EmpPassword;
                 _context.Entry(employee).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _context.SaveChanges();
                 return 1;

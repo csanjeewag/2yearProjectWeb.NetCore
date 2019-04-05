@@ -238,6 +238,51 @@ namespace EMS.API.Controllers
 
 
         /// <summary>
+        /// update employee details
+        /// </summary>
+        /// <param name="emp"></param>
+        /// <returns></returns>
+        [HttpPost("updateemployeeprofile")]
+        public IActionResult updateemployeeprofile([FromForm]GetEmployee emp)
+        {
+            string res = "";
+            if (emp.EmpProfilePicture != null)
+            {
+                // if there profile picture change it
+                res = AddFiles.AddImage(emp.EmpProfilePicture, emp.EmpId);
+
+            }
+            
+
+            Employee employee = new Employee();
+            employee.EmpId = emp.EmpId;
+            employee.EmpEmail = emp.EmpEmail;
+            employee.EmpPassword = emp.EmpPassword;
+            employee.EmpName = emp.EmpName;
+            employee.EmpContact = emp.EmpContact;
+            employee.EmpAddress1 = emp.EmpAddress1;
+            employee.EmpAddress2 = emp.EmpAddress2;
+            employee.EmpGender = emp.EmpGender;
+            employee.PositionPId = emp.PositionPId;
+            employee.DepartmentDprtId = emp.DepartmentDprtId;
+            employee.EmpProfilePicture = res;
+            employee.IsActive = emp.IsActive;
+            employee.StartDate = emp.StartDate;
+            employee.ProjectPrId = emp.ProjectId;
+
+            if (_service.UpdateEmployeeProfile(employee)==1)
+            {
+
+                return Ok("Changes success full!");
+            }
+            
+            else
+            {
+                return BadRequest("there are error");
+            }
+        }
+
+        /// <summary>
         /// update employee position using email
         /// </summary>
         /// <param name="position"></param>

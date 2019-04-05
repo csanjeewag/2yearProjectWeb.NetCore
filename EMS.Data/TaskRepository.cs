@@ -26,7 +26,7 @@ namespace EMS.Data
             
            
             var test = _context.EmployeeTasks
-                .Where(et => et.EId == id )
+                .Where(et => et.EId == id && et.Task.Status == false)
                 .Select(et => et.Task)
                 .ToList();
             return test;
